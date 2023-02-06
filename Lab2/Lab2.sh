@@ -13,7 +13,7 @@ welcome_message() {
   clear
   echo "                    -------------------------"
   echo "                    -------Let's play -------"
-  echo "                    -------TIK-TAK-TOE-------"
+  echo "                    -------TIC-TAC-TOE-------"
   echo "                    -------------------------"
   sleep 3
 }
