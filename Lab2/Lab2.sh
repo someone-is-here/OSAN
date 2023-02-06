@@ -19,7 +19,6 @@ welcome_message() {
 }
 
 show_field() {
- clear
  echo -e "                    ${CYAN}=========================${NC}"
  echo "                    |   ${moves[0]}   |   ${moves[1]}   |   ${moves[2]}   |"
  echo "                    -------------------------"
@@ -28,6 +27,18 @@ show_field() {
  echo "                    |   ${moves[6]}   |   ${moves[7]}   |   ${moves[8]}   |"
  echo -e "                    ${CYAN}=========================${NC}"
 }
+
+write_to_file() {
+echo "write to file"
+ echo "                    =========================" >> save
+ echo "                    |   ${moves[0]}   |   ${moves[1]}   |   ${moves[2]}   |" >> save
+ echo "                    -------------------------" >> save
+ echo "                    |   ${moves[3]}   |   ${moves[4]}   |   ${moves[5]}   |" >> save
+ echo "                    -------------------------" >> save
+ echo "                    |   ${moves[6]}   |   ${moves[7]}   |   ${moves[8]}   |" >> save
+ echo "                    =========================" >> save
+}
+
 
 player_pick(){
   if [[ $(($turn % 2)) == 0 ]]
@@ -47,9 +58,16 @@ player_pick(){
   then 
     echo "Not a valid square."
     player_pick
-  else  
+  else
     moves[($square -1)]=$play
     ((turn=turn+1))
+    
+    read var
+    
+    if  [ "$var" = "F" ] || [ "$var" = "f" ]
+    then
+    	write_to_file
+    fi
   fi
   space=${moves[($square-1)]} 
 }
@@ -99,6 +117,7 @@ check_winner(){
 
 welcome_message
 show_field
+echo " " > save
 while $game_on
 do
   player_pick
