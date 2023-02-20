@@ -3,17 +3,24 @@
 table_name=""
 counter=0
 var1=""
+var_col=""
+
 while IFS= read -r line
 do
 if [[ "$counter" == 0 ]] ; then
-  table_name=${line//[[:blank:]]/}
+  table_name=($line awk '{ gsub (" ", "", $0); print}')
 elif [[ "$counter" == 1 ]] ; then
-  var1="INSERT INTO $table_name(${line//[[:blank:]]/}) VALUES"
+  var_col=$(echo "$line" | awk '{ gsub (" ", "", $0); print}')
+  
+  var1="INSERT INTO $table_name($var_col) VALUES"
 else
-  echo "$var1"
-  var1='('${line//[[:blank:]]/}'),'
+ if [[ "$counter" -gt 2 ]] ; then
+    echo "$var1" | sed 's/ //g'
+  else
+    echo "$var1"
+  fi
+  var1='('${line}'),'
 fi
 ((counter++))
 done < trees.csv
 echo ${var1::-1}';'
-
