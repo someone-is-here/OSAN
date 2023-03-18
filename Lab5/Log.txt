@@ -1,0 +1,34 @@
+Starting
+The process was switched19069
+The process was double switched 19070
+Waiting for events
+Counter: 10 sec
+Counter: 20 sec
+Counter: 30 sec
+Counter: 40 sec
+Counter: 50 sec
+Counter: 60 sec
+Counter: 70 sec
+Counter: 80 sec
+Counter: 90 sec
+Counter: 100 sec
+Counter: 110 sec
+Counter: 120 sec
+Counter: 130 sec
+Counter: 140 sec
+Counter: 150 sec
+Counter: 160 sec
+Counter: 170 sec
+Counter: 180 sec
+Counter: 190 sec
+Counter: 200 sec
+Counter: 210 sec
+Counter: 220 sec
+Counter: 230 sec
+Counter: 240 sec
+Counter: 250 sec
+Counter: 260 sec
+Counter: 270 sec
+Counter: 280 sec
+Counter: 290 sec
+Counter: 300 sec
